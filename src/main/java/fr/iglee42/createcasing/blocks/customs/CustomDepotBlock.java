@@ -82,6 +82,12 @@ public class CustomDepotBlock extends Block implements IBE<DepotBlockEntity>, IW
 	}
 
 	@Override
+	public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand,
+								 BlockHitResult ray) {
+		return SharedDepotBlockMethods.onUse(state, world, pos, player, hand, ray);
+	}
+
+	@Override
 	public void onRemove(BlockState state, Level worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
 		IBE.onRemove(state, worldIn, pos, newState);
 	}
